@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_batoi_ciclo_director,batoi.ciclo_director,model_batoi_ciclo,grupo_director,1,1,1,1
+acl_batoi_modulo_director,batoi.modulo_director,model_batoi_modulo,grupo_director,1,1,1,1
+acl_batoi_alumno_director,batoi.alumno_director,model_batoi_alumno,grupo_director,1,1,1,1
+acl_batoi_profesor_director,batoi.profesor_director,model_batoi_profesor,grupo_director,1,1,1,1
+acl_batoi_ciclo_profesor,batoi.ciclo_profesor,model_batoi_ciclo,grupo_profesor,1,1,1,1
+acl_batoi_modulo_profesor,batoi.modulo_profesor,model_batoi_modulo,grupo_profesor,1,1,1,1
+acl_batoi_alumno_profesor,batoi.alumno_profesor,model_batoi_alumno,grupo_profesor,1,1,1,1
+acl_batoi_profesor_profesor,batoi.profesor_profesor,model_batoi_profesor,grupo_profesor,1,0,0,0
+acl_batoi_ciclo,batoi.ciclo_default,model_batoi_ciclo,base.group_user,1,0,0,0
+acl_batoi_modulo,batoi.modulo_default,model_batoi_modulo,base.group_user,1,0,0,0
+acl_batoi_alumno,batoi.alumno_default,model_batoi_alumno,base.group_user,0,0,0,0
+acl_batoi_profesor,batoi.profesor_default,model_batoi_profesor,base.group_user,0,0,0,0

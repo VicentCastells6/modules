@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="modulo_list">
+      <field name="name">Lista de Modulos</field>
+      <field name="model">batoi.modulo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="codigo"/>
+          <field name="ciclo_id"/>
+          <field name="profesor_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="modulo_action_window">
+      <field name="name">Modulos de Ciclos de Batoi</field>
+      <field name="res_model">batoi.modulo</field>
+      <field name="view_mode">tree,form,graph</field>
+    </record>
+
+
+    <!-- actions -->
+
+    <menuitem name="Modulos" id="modulo_menu" parent="batoi_menu_root"
+              action="modulo_action_window"/>
+
+    <!-- search -->
+    <record id="modulo_search" model="ir.ui.view">
+        <field name="name">Busqueda de Modulos</field>
+        <field name="model">batoi.modulo</field>
+        <field name="arch" type="xml">
+            <search>
+              <field name="nombre"/>
+              <field name="codigo"/>
+              <field name="ciclo_id"/>
+              <field name="profesor_id"/>
+              <filter string="Sin Profesor" name="sin_profesor" domain="[('profesor_id','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- graph -->
+    <record model="ir.ui.view" id="modulo_graph">
+      <field name="name">Grafico de Modulos</field>
+      <field name="model">batoi.modulo</field>
+      <field name="arch" type="xml">
+        <graph string="Gráfico de Modulos" type="bar">
+            <field type="row" name="ciclo_id" />
+            <field type="col" name="nombre" />
+            <field type="measure" name="alumno_ids" />
+        </graph>
+      </field>
+    </record>
+
+  </data>
+</odoo>

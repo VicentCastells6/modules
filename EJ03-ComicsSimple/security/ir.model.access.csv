@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_comic,biblioteca.comic_default,model_biblioteca_comic,,1,0,0,0
+acl_comic_bibliotecario,biblioteca.comic_bibliotecario,model_biblioteca_comic,grupo_bibliotecario,1,1,1,1
+acl_soci,biblioteca.soci_default,model_biblioteca_soci,,1,0,0,0
+acl_soci_bibliotecario,biblioteca.soci_bibliotecario,model_biblioteca_soci,grupo_bibliotecario,1,1,1,1
+acl_comic_ejemplar,biblioteca.comic_ejemplar_default,model_biblioteca_comic_ejemplar,,1,0,0,0
+acl_comic_ejemplar_bibliotecario,biblioteca.comic_ejemplar_bibliotecario,model_biblioteca_comic_ejemplar,grupo_bibliotecario,1,1,1,1

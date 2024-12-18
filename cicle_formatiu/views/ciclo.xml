@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="ciclo_list">
+      <field name="name">Lista de Ciclos</field>
+      <field name="model">batoi.ciclo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="codigo"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="ciclo_action_window">
+      <field name="name">Ciclos de Batoi</field>
+      <field name="res_model">batoi.ciclo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="CIPFP Batoi" id="batoi_menu_root"/>
+
+
+    <!-- actions -->
+
+    <menuitem name="Ciclos" id="ciclo_menu" parent="batoi_menu_root"
+              action="ciclo_action_window"/>
+    
+    <!-- search -->
+    <record id="ciclo_search" model="ir.ui.view">
+        <field name="name">Busqueda de Ciclos</field>
+        <field name="model">batoi.ciclo</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre"/>
+                <field name="codigo"/>
+                <filter string="Sin Nombre" name="sin_nombre" domain="[('nombre','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,92 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="hospital_medico_view_tree">
+      <field name="name">Lista de Medicos</field>
+      <field name="model">hospital.medico</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="num_colegiado"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- Kanban -->
+
+    <record model="ir.ui.view" id="hospital_medico_view_kanban">
+      <field name="name">Kanban de Medicos</field>
+      <field name="model">hospital.medico</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <field name="nombre"/>
+          <field name="num_colegiado"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_global_click">
+                <div class="o_kanban_image">
+                  <img class="o_image_64_contain"
+                  t-att-alt="record.nombre.value"
+                  t-att-src="kanban_image('hospital.medico', 'image', record.id.raw_value)" />
+                </div>
+                <div class="oe_kanban_details">
+                  <h4>
+                    <a type="edit">
+                      <field name="nombre"/>
+                    </a>
+                  </h4>
+                  <h6>
+                    <field name="num_colegiado"/>
+                  </h6>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="hospital_medico_action">
+      <field name="name">Medicos del Hospital</field>
+      <field name="res_model">hospital.medico</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="hospital.action_server">
+      <field name="name">hospital server</field>
+      <field name="model_id" ref="model_hospital_hospital"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Hospital" id="hospital_base_menu"/>
+
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="hospital.menu_1" parent="hospital.menu_root"/>
+    <menuitem name="Menu 2" id="hospital.menu_2" parent="hospital.menu_root"/>
+-->
+    <!-- actions -->
+
+    <menuitem name="Medicos" id="hospital_medico_menu" parent="hospital_base_menu"
+              action="hospital_medico_action"/>
+
+  </data>
+</odoo>

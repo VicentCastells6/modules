@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="hospital_diagnostico_view_tree">
+      <field name="name">Lista de Diagnosticos</field>
+      <field name="model">hospital.diagnostico</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="medico_id"/>
+          <field name="paciente_id"/>
+          <field name="fecha"/>
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>

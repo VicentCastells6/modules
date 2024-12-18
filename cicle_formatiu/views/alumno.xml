@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="alumno_list">
+      <field name="name">Lista de Alumnos</field>
+      <field name="model">batoi.alumno</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre_completo"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Kanban -->
+
+    <record model="ir.ui.view" id="alumno_kanban">
+      <field name="name">Kanban de Alumnos</field>
+      <field name="model">batoi.alumno</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <field name="nombre_completo"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_global_click">
+                <div class="o_kanban_image">
+                  <img class="o_image_64_contain"
+                  t-att-alt="record.nombre_completo.value"
+                  t-att-src="kanban_image('batoi.alumno', 'image', record.id.raw_value)" />
+                </div>
+                <div class="oe_kanban_details">
+                  <h4>
+                    <field name="nombre_completo"/>
+                  </h4>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="alumno_action_window">
+      <field name="name">Alumnos de Batoi</field>
+      <field name="res_model">batoi.alumno</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+    <!-- actions -->
+
+    <menuitem name="Alumnos" id="alumno_menu" parent="batoi_menu_root"
+              action="alumno_action_window"/>
+
+  </data>
+</odoo>

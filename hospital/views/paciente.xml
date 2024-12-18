@@ -1,0 +1,54 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="hospital_paciente_view_tree">
+      <field name="name">Lista de Pacientes</field>
+      <field name="model">hospital.paciente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="hospital_paciente_action">
+      <field name="name">Pacientes del Hospital</field>
+      <field name="res_model">hospital.paciente</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="hospital.action_server">
+      <field name="name">hospital server</field>
+      <field name="model_id" ref="model_hospital_hospital"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="hospital.menu_1" parent="hospital.menu_root"/>
+    <menuitem name="Menu 2" id="hospital.menu_2" parent="hospital.menu_root"/>
+-->
+    <!-- actions -->
+
+    <menuitem name="Pacientes" id="hospital_paciente_menu" parent="hospital_base_menu"
+              action="hospital_paciente_action"/>
+
+  </data>
+</odoo>
